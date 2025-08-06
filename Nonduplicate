@@ -1,0 +1,21 @@
+public class NonDuplicateNumbers {
+    public static void main(String[] args) {
+        int[] numbers = {4, 54, 29, 71, 7, 59, 98, 23, 54, 29};
+
+        System.out.println("Non-duplicate (unique) numbers:");
+        for (int i = 0; i < numbers.length; i++) {
+            boolean isDuplicate = false;
+
+            for (int j = 0; j < numbers.length; j++) {
+                if (i != j && numbers[i] == numbers[j]) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+            if (!isDuplicate) {
+                System.out.println(numbers[i]);
+            }
+        }
+    }
+}
