@@ -1,0 +1,35 @@
+import java.util.Arrays;
+
+public class FindMthMaxNthMin {
+    public static void main(String[] args) {
+        // Test input
+        int[] arr = {14, 16, 87, 36, 25, 89, 34};
+        int M = 1;
+        int N = 3;
+
+        findAndPrintResult(arr, M, N);
+    }
+
+    public static void findAndPrintResult(int[] arr, int M, int N) {
+        if (M <= 0 || N <= 0) {
+            System.out.println("M and N must be greater than 0");
+            return;
+        }
+
+        int[] sortedArr = Arrays.copyOf(arr, arr.length);
+        Arrays.sort(sortedArr);
+
+        if (M > sortedArr.length || N > sortedArr.length) {
+            System.out.println("M or N is out of bounds.");
+            return;
+        }
+
+        int nthMin = sortedArr[N - 1];
+        int mthMax = sortedArr[sortedArr.length - M];
+
+        System.out.println(M + "th Maximum Number = " + mthMax);
+        System.out.println(N + "th Minimum Number = " + nthMin);
+        System.out.println("Sum = " + (mthMax + nthMin));
+        System.out.println("Difference = " + Math.abs(mthMax - nthMin));
+    }
+}
